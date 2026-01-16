@@ -1,0 +1,166 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Banner */
+.banner {
+    background: url('banner.jpg') no-repeat center center/cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.title {
+    color: white;
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    animation: slideDown 2s ease-in-out;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #0077b6;
+    margin-right: 30px;
+    transition: transform 0.5s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.info {
+    max-width: 500px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+    animation: zoomIn 1.5s ease-in-out;
+}
+
+.info h2 {
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0077b6;
+    color: white;
+    font-size: 1rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: #f5f5f5; /* Light text for readability */
+}
+
+body.dark-mode .info {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode p,
+body.dark-mode li {
+    color: #f5f5f5; /* Ensure all text is light */
+}
+
+body.dark-mode footer {
+    background: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode #darkModeBtn {
+    background: #333;
+    color: #f5f5f5;
+    border: 1px solid #555;
+}
+
+body.dark-mode #likesList li {
+    color: #f5f5f5; /* Default light color */
+}
+
+/* Modern Toggle Button */
+#darkModeBtn {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Toggle Knob */
+#darkModeBtn::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.5s ease, background 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Dark Mode Active */
+body.dark-mode #darkModeBtn {
+    background: linear-gradient(135deg, #2c3e50, #000000);
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.2), 0 0 15px rgba(0,0,0,0.8);
+}
+
+body.dark-mode #darkModeBtn::before {
+    transform: translateX(40px);
+    background: #ffcc00; /* glowing golden knob */
+    box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+}
